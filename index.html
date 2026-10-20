@@ -1,0 +1,345 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bhumika VastrAI | Style Beyond Limits</title>
+  <meta name="description" content="Discover luxury Indian fashion with VastrAI's virtual styling demo." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: Inter, sans-serif; }
+    .serif { font-family: "Cormorant Garamond", Georgia, serif; }
+    .wine-gradient { background: linear-gradient(120deg, #8e2948, #cf5274); }
+    .hero-bg {
+      background:
+        linear-gradient(90deg, rgba(32, 14, 20, .96), rgba(53, 22, 31, .77)),
+        url("https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1600&q=85") center 35% / cover;
+    }
+    .product-image { transition: transform .45s ease; }
+    .product-card:hover .product-image { transform: scale(1.045); }
+    .swatch { width: 23px; height: 23px; border-radius: 50%; cursor: pointer; }
+    .swatch.selected { outline: 2px solid #a83b59; outline-offset: 3px; }
+    .nav-link { transition: color .2s ease; }
+    .nav-link:hover { color: #e9b5c3; }
+    button:focus-visible, input:focus-visible, select:focus-visible,
+    textarea:focus-visible { outline: 2px solid #b23e60; outline-offset: 3px; }
+  </style>
+</head>
+
+<body class="bg-[#fbf7f3] text-[#352027]">
+
+  <!-- Navigation -->
+  <header class="sticky top-0 z-40 bg-[#211318] text-white shadow-lg">
+    <div class="mx-auto flex max-w-[1450px] items-center justify-between gap-4 px-5 py-4 md:px-10">
+
+      <a href="#home" class="flex items-center gap-3">
+        <span class="text-4xl text-[#e7a6b6]">❋</span>
+        <span>
+          <span class="serif block text-3xl leading-none">VastrAI</span>
+          <span class="mt-1 block text-[10px] tracking-[.18em] text-[#e6b7c2]">STYLE BEYOND LIMITS</span>
+        </span>
+      </a>
+
+      <div class="hidden max-w-md flex-1 items-center rounded-full border border-white/20 bg-white/10 px-4 py-3 md:flex">
+        <span class="mr-3 text-white/60">⌕</span>
+        <input id="searchInput" type="search" placeholder="Search sarees, styles..."
+               class="w-full bg-transparent text-sm outline-none placeholder:text-white/50">
+      </div>
+
+      <div class="flex items-center gap-4">
+        <button id="wishlistBtn" class="text-2xl" aria-label="Wishlist">♡</button>
+        <button id="bagBtn" class="relative text-xl" aria-label="Shopping bag">
+          ♧ <span id="bagCount" class="absolute -right-3 -top-2 rounded-full bg-[#ce5473] px-1.5 text-xs">0</span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="flex flex-wrap justify-center gap-x-8 gap-y-2 border-t border-white/10 px-4 py-3 text-sm">
+      <a class="nav-link" href="#home">Home</a>
+      <a class="nav-link" href="#shop">Shop</a>
+      <a class="nav-link" href="#virtual-tryon">AI Stylist</a>
+      <a class="nav-link text-[#e8a6b7]" href="#virtual-tryon">✧ Virtual Try-On</a>
+      <a class="nav-link" href="#collections">Collections</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section id="home" class="hero-bg relative overflow-hidden text-white">
+      <div class="mx-auto grid max-w-[1350px] items-center gap-8 px-6 py-16 md:grid-cols-2 md:px-12 md:py-24">
+        <div class="max-w-xl">
+          <p class="text-xs font-semibold uppercase tracking-[.35em] text-[#e8a7b7]">
+            The new era of Indian fashion
+          </p>
+          <h1 class="serif mt-5 text-5xl leading-[1.06] md:text-7xl">
+            Tradition, <span class="italic text-[#e8a7b7]">reimagined.</span>
+          </h1>
+          <p class="mt-5 max-w-md text-sm leading-7 text-white/75 md:text-base">
+            Discover statement sarees and timeless elegance. Find your next
+            favourite look with our AI-inspired styling experience.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#shop" class="wine-gradient rounded-full px-7 py-3.5 text-sm font-semibold">
+              Explore Collection →
+            </a>
+            <a href="#virtual-tryon" class="rounded-full border border-white/40 px-7 py-3.5 text-sm">
+              ✧ Try Virtual Styling
+            </a>
+          </div>
+          <div class="mt-10 flex gap-8 text-xs text-white/70">
+            <span><strong class="block text-xl text-white">01</strong> Curated product</span>
+            <span><strong class="block text-xl text-white">AI</strong> Styling concept</span>
+            <span><strong class="block text-xl text-white">∞</strong> Your expression</span>
+          </div>
+        </div>
+
+        <div class="relative mx-auto w-full max-w-md">
+          <div class="absolute -inset-4 rounded-[45%] border border-[#d9a7a0]/30"></div>
+          <img
+            src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSJhBOR8wQjM55CDhHHejQ3os9mitdPN2J_CszbctPGb7FwB56M"
+            alt="Traditional Indian saree fashion inspiration"
+            class="relative h-[420px] w-full rounded-t-[48%] rounded-b-2xl object-cover object-top shadow-2xl md:h-[520px]"
+          />
+          <div class="absolute -bottom-5 -left-4 rounded-xl bg-[#fbf3ee] p-4 text-[#352027] shadow-xl md:-left-10">
+            <p class="serif text-xl">A little luxury</p>
+            <p class="mt-1 text-xs text-stone-500">Made for your moments</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Collections -->
+    <section id="collections" class="mx-auto max-w-[1350px] px-5 py-14 md:px-10">
+      <div class="mb-7 flex items-end justify-between gap-4">
+        <div>
+          <p class="text-xs uppercase tracking-[.25em] text-[#a66a53]">Explore your style</p>
+          <h2 class="serif mt-2 text-4xl md:text-5xl">Curated Collections</h2>
+        </div>
+        <a href="#shop" class="text-sm text-[#a33c58]">Shop all →</a>
+      </div>
+
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+        <a href="#shop" class="group relative h-64 overflow-hidden rounded-2xl">
+          <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSJhBOR8wQjM55CDhHHejQ3os9mitdPN2J_CszbctPGb7FwB56M"
+               alt="Traditional saree collection" class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/75 to-transparent"></div>
+          <div class="absolute bottom-5 left-5 text-white">
+            <p class="serif text-3xl">The Saree Edit</p><p class="mt-1 text-xs">Timeless elegance →</p>
+          </div>
+        </a>
+        <a href="#shop" class="group relative h-64 overflow-hidden rounded-2xl">
+          <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=700&q=80"
+               alt="Elegant occasion wear collection" class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/75 to-transparent"></div>
+          <div class="absolute bottom-5 left-5 text-white">
+            <p class="serif text-3xl">Occasion Wear</p><p class="mt-1 text-xs">Celebrate beautifully →</p>
+          </div>
+        </a>
+        <a href="#virtual-tryon" class="group relative h-64 overflow-hidden rounded-2xl bg-[#ead8d2]">
+          <img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=700&q=80"
+               alt="Jewellery styling inspiration" class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/75 to-transparent"></div>
+          <div class="absolute bottom-5 left-5 text-white">
+            <p class="serif text-3xl">Jewellery & More</p><p class="mt-1 text-xs">Complete your look →</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Featured product -->
+    <section id="shop" class="border-y border-[#eee1da] bg-white py-14">
+      <div class="mx-auto max-w-[1350px] px-5 md:px-10">
+        <div class="mb-8 flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p class="text-xs uppercase tracking-[.25em] text-[#a66a53]">Our signature pick</p>
+            <h2 class="serif mt-2 text-4xl md:text-5xl">The Featured Piece</h2>
+          </div>
+          <span class="rounded-full bg-[#f7e6e9] px-4 py-2 text-xs text-[#9c3551]">Limited-time demo price</span>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-2">
+          <div class="product-card overflow-hidden rounded-2xl bg-[#f3e7dd]">
+            <img id="productImage"
+              src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=85"
+              alt="Saree fashion inspiration"
+              class="product-image h-[430px] w-full object-cover object-top md:h-[580px]">
+          </div>
+
+          <div class="flex flex-col justify-center py-2 md:px-5">
+            <span class="w-fit rounded bg-[#f8e1e7] px-3 py-1 text-xs font-semibold text-[#a43c58]">VAS TRAI PICK</span>
+            <h3 class="serif mt-4 text-4xl md:text-5xl">Emerald Green Silk Saree</h3>
+            <p class="mt-3 text-sm leading-6 text-stone-500">
+              Inspired by classic Indian occasion wear, with a rich emerald
+              palette and golden detailing.
+            </p>
+
+            <div class="mt-5 flex items-center gap-3">
+              <span class="text-2xl font-semibold">₹4,999</span>
+              <span class="text-sm text-stone-400 line-through">₹7,999</span>
+              <span class="text-sm font-semibold text-[#ad3d59]">38% OFF</span>
+            </div>
+
+            <div class="mt-6">
+              <p class="mb-3 text-sm font-medium">Choose a colour</p>
+              <div class="flex gap-4">
+                <button class="swatch selected bg-[#075b45]" data-color="Emerald Green" aria-label="Emerald Green"></button>
+                <button class="swatch bg-[#b84661]" data-color="Rose Pink" aria-label="Rose Pink"></button>
+                <button class="swatch bg-[#70456f]" data-color="Royal Purple" aria-label="Royal Purple"></button>
+                <button class="swatch bg-[#dfbd89]" data-color="Champagne" aria-label="Champagne"></button>
+              </div>
+              <p id="selectedColor" class="mt-3 text-xs text-stone-500">Selected: Emerald Green</p>
+            </div>
+
+            <div class="mt-6 grid grid-cols-3 gap-2 border-y border-[#eee3dd] py-4 text-center text-xs text-stone-600">
+              <div><span class="block text-lg">◇</span>Premium style</div>
+              <div><span class="block text-lg">♧</span>Gift-worthy</div>
+              <div><span class="block text-lg">♡</span>Classic design</div>
+            </div>
+
+            <div class="mt-6 flex gap-3">
+              <button id="addToBag" class="flex-1 rounded-xl bg-[#29161d] px-5 py-4 text-sm font-semibold text-white hover:bg-[#512531]">
+                ♧ Add to Bag
+              </button>
+              <button id="wishlistProduct" class="rounded-xl border border-[#d8a6b3] px-5 text-2xl text-[#a43c58]" aria-label="Add to wishlist">♡</button>
+            </div>
+            <a href="#virtual-tryon" class="mt-4 rounded-xl border border-[#d8a6b3] px-5 py-4 text-center text-sm font-medium text-[#9d3451] hover:bg-[#fff5f7]">
+              ✧ Try This Saree Virtually
+            </a>
+            <p id="productMessage" class="mt-3 text-sm text-[#a13a55]" aria-live="polite"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Virtual try-on -->
+    <section id="virtual-tryon" class="bg-[#faf5f1] px-5 py-14 md:px-10">
+      <div class="mx-auto max-w-[1250px]">
+        <div class="mb-8 text-center">
+          <p class="text-xs font-semibold uppercase tracking-[.3em] text-[#a56b52]">Your personal style studio</p>
+          <h2 class="serif mt-3 text-4xl text-[#381c25] md:text-5xl">AI Virtual Try-On</h2>
+          <p class="mt-3 text-sm text-stone-500">Imagine the look. Explore the possibilities.</p>
+        </div>
+
+        <div class="grid overflow-hidden rounded-3xl border border-[#ead8d7] bg-white shadow-xl lg:grid-cols-2">
+          <div class="bg-[#f2e8df] p-5 md:p-8">
+            <span class="rounded-full bg-white px-4 py-2 text-xs font-semibold tracking-wider text-[#8d344b]">FEATURED PRODUCT</span>
+            <img
+              id="tryonProductImage"
+              src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSJhBOR8wQjM55CDhHHejQ3os9mitdPN2J_CszbctPGb7FwB56M"
+              alt="Emerald saree style inspiration"
+              crossorigin="anonymous"
+              class="mt-5 h-[380px] w-full rounded-2xl object-cover object-top md:h-[460px]"
+            />
+            <h3 class="serif mt-5 text-3xl">Emerald Green Silk Saree</h3>
+            <p class="mt-2 text-sm text-stone-500">Traditional occasion-wear inspiration</p>
+            <p class="mt-3 text-2xl font-semibold">₹4,999</p>
+          </div>
+
+          <div class="p-5 md:p-8">
+            <div class="rounded-2xl border border-[#f0d8dc] bg-[#fff9f9] p-5 md:p-6">
+              <div class="flex items-center gap-3">
+                <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#f6e4e8] text-3xl text-[#a53654]">✧</div>
+                <div>
+                  <h3 class="serif text-3xl text-[#381c25]">Style it your way</h3>
+                  <p class="mt-1 text-xs text-stone-500">A static virtual styling demo</p>
+                </div>
+              </div>
+
+              <div class="mt-6 grid grid-cols-3 border-b border-[#ead8d7] pb-3 text-center text-xs">
+                <span class="font-semibold text-[#b13e5c]">① Photo</span>
+                <span class="text-stone-400">② Style</span>
+                <span class="text-stone-400">③ Preview</span>
+              </div>
+
+              <label for="photoInput" class="mt-5 flex cursor-pointer flex-col items-center rounded-2xl border-2 border-dashed border-[#dfbfc7] bg-white px-4 py-6 text-center hover:border-[#b13e5c]">
+                <span class="text-4xl text-[#b13e5c]">⇧</span>
+                <span class="mt-3 font-semibold">Upload your photo</span>
+                <span class="mt-1 text-xs text-stone-500">Optional — preview stays in this browser</span>
+                <span class="mt-4 rounded-xl bg-[#a93654] px-5 py-3 text-sm font-medium text-white">Choose Photo</span>
+                <input id="photoInput" type="file" accept="image/*" class="hidden">
+              </label>
+
+              <img id="photoPreview" alt="Your selected photo preview" class="mt-4 hidden max-h-60 w-full rounded-xl object-contain">
+
+              <div class="my-5 flex items-center gap-3 text-xs text-stone-400">
+                <span class="h-px flex-1 bg-[#ead8d7]"></span>OR TRY A STYLE
+                <span class="h-px flex-1 bg-[#ead8d7]"></span>
+              </div>
+
+              <div class="grid grid-cols-2 gap-3">
+                <button type="button" data-demo="wedding" class="demo-look rounded-xl border border-[#e5cbd0] bg-white p-3 text-sm text-[#663448] hover:border-[#a93654]">✨ Wedding Look</button>
+                <button type="button" data-demo="festive" class="demo-look rounded-xl border border-[#e5cbd0] bg-white p-3 text-sm text-[#663448] hover:border-[#a93654]">🌸 Festive Look</button>
+              </div>
+
+              <label for="caption" class="mt-5 block text-sm font-medium text-[#381c25]">Describe your occasion</label>
+              <textarea id="caption" rows="2" placeholder="e.g. Elegant wedding look with gold jewellery..." class="mt-2 w-full rounded-xl border border-[#ead8d7] bg-white p-3 text-sm outline-none focus:border-[#a93654]"></textarea>
+
+              <label for="tryonProduct" class="mt-4 block text-sm font-medium text-[#381c25]">Selected product</label>
+              <select id="tryonProduct" class="mt-2 w-full rounded-xl border border-[#ead8d7] bg-white p-3 text-sm">
+                <option value="emerald">Emerald Green Silk Saree — ₹4,999</option>
+              </select>
+
+              <button id="generateBtn" type="button" class="mt-5 w-full rounded-xl bg-gradient-to-r from-[#a52f50] to-[#d04d70] px-5 py-4 font-semibold text-white shadow-md transition hover:-translate-y-0.5 hover:shadow-lg">
+                ✨ Generate My Look
+              </button>
+
+              <p id="tryonStatus" class="mt-3 text-center text-sm text-stone-500" aria-live="polite"></p>
+
+              <div id="tryonResult" class="mt-5 hidden">
+                <p class="mb-3 font-semibold text-[#381c25]">Your Style Inspiration</p>
+                <img id="demoResultImage" src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=85" alt="Sample saree style inspiration" class="max-h-[420px] w-full rounded-2xl object-cover object-top">
+                <p id="tryonNote" class="mt-3 text-xs leading-5 text-stone-500">AI results are estimates and may change your appearance or product details; check the result carefully.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust bar -->
+    <section class="border-y border-[#eadfd9] bg-white">
+      <div class="mx-auto grid max-w-[1300px] grid-cols-2 gap-6 px-5 py-8 text-center md:grid-cols-4">
+        <div><span class="text-2xl text-[#a83b59]">◇</span><p class="mt-2 text-sm font-semibold">Curated Style</p><p class="mt-1 text-xs text-stone-500">Thoughtful selections</p></div>
+        <div><span class="text-2xl text-[#a83b59]">♡</span><p class="mt-2 text-sm font-semibold">Personal Looks</p><p class="mt-1 text-xs text-stone-500">Made for your taste</p></div>
+        <div><span class="text-2xl text-[#a83b59]">✧</span><p class="mt-2 text-sm font-semibold">AI Concept</p><p class="mt-1 text-xs text-stone-500">Explore new ideas</p></div>
+        <div><span class="text-2xl text-[#a83b59]">❋</span><p class="mt-2 text-sm font-semibold">Indian Fashion</p><p class="mt-1 text-xs text-stone-500">Tradition meets style</p></div>
+      </div>
+    </section>
+
+    <!-- More inspiration -->
+    <section class="mx-auto max-w-[1350px] px-5 py-14 md:px-10">
+      <div class="grid gap-6 lg:grid-cols-3">
+        <div class="flex flex-col justify-center rounded-2xl bg-[#29161d] p-7 text-white md:p-10">
+          <p class="text-xs uppercase tracking-[.25em] text-[#e9a7b8]">Discover your look</p>
+          <h2 class="serif mt-3 text-4xl">Let AI Style You</h2>
+          <p class="mt-3 text-sm leading-6 text-white/70">Explore a fashion concept built around your favourite occasion.</p>
+          <a href="#virtual-tryon" class="mt-6 w-fit rounded-full bg-[#d45475] px-6 py-3 text-sm">Try It Now →</a>
+        </div>
+        <div class="rounded-2xl border border-[#eadfd9] bg-white p-5">
+          <div class="serif text-2xl">A note on this demo</div>
+          <p class="mt-3 text-sm leading-6 text-stone-500">The try-on interaction is a frontend prototype. A real generated image requires an image-generation service.</p>
+        </div>
+        <div class="rounded-2xl border border-[#eadfd9] bg-white p-5">
+          <div class="serif text-2xl">Your style, your choice</div>
+          <p class="mt-3 text-sm leading-6 text-stone-500">Try different occasion prompts and explore the featured saree's styling possibilities.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-[#211318] px-5 py-8 text-center text-white">
+    <p class="serif text-3xl text-[#e8a6b7]">VastrAI</p>
+    <p class="mt-2 text-xs text-white/60">Style Beyond Limits · Static Demo</p>
+    <p class="mt-4 text-xs text-white/40">© 2026 VastrAI. Demo project.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

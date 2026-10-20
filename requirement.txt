@@ -1,0 +1,6 @@
+mcp[cli]>=1.28,<2
+fastapi
+uvicorn[standard]
+httpx
+pillow
+python-multipart
